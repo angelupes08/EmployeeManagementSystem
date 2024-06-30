@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface EmployeeService {
 
-    public Employee createEmployee(EmployeeDto employeeDto,String department,String job,Long managerId);
+    public EmployeeDto createEmployee(EmployeeDto employeeDto,String department,String job,Long managerId);
 
     public EmployeeDto getEmployeeDetails();
 

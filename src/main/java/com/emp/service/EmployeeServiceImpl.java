@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     private JobHistoryService jobHistoryService;
 
     @Override
-    public Employee createEmployee(EmployeeDto employeeDto,String department,String job,Long managerId) {
+    public EmployeeDto createEmployee(EmployeeDto employeeDto,String department,String job,Long managerId) {
 
         Optional<Employee> emp = employeeRepo.findByEmail(employeeDto.getEmail());
 
@@ -72,9 +72,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
         jobHistoryService.createJobHistory(employee,job,department);
 
-        JobHistory jobHistory = new JobHistory();
-
-        return savedEmployee;
+        return modelMapper.map(savedEmployee, EmployeeDto.class);
     }
 
     @Override

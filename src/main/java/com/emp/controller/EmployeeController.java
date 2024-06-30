@@ -20,25 +20,25 @@ public class EmployeeController {
 
 
     @PostMapping("/register")//this will create a user
-    public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDto employee,
+    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employee,
                                                    @RequestParam(value = "department") String department
             ,@RequestParam(value = "job") String job,@RequestParam(value = "managerId") Long managerId)
 
     {
 
-        Employee e = employeeService.createEmployee(employee,department,job,managerId);
+        EmployeeDto e = employeeService.createEmployee(employee,department,job,managerId);
 
         return new ResponseEntity<>(e,HttpStatus.CREATED);
     }
 
-    @PutMapping("/departmentAndJob/{id}")
+    @PutMapping("/update/departmentandjob/{id}")
     public ResponseEntity<DepartmentJobDto> updateDepartmentAndJob(@RequestBody DepartmentJobDto departmentJobDto,
                                                                    @PathVariable Long id){
 
         return new ResponseEntity<DepartmentJobDto>(employeeService.updateDepartmentandJobDetails(departmentJobDto,id),HttpStatus.OK);
     }
 
-    @PutMapping("/employee/{id}")
+    @PutMapping("/update/employee/{id}")
     public ResponseEntity<EmployeeDto> updateEmployeeInfo(@RequestBody EmployeeDto employeeDto,
                                                           @PathVariable Long id){
 
@@ -57,7 +57,7 @@ public class EmployeeController {
         return new ResponseEntity<EmployeeDto>(employeeService.getOtherEmployeeDetails(id),HttpStatus.OK);
     }
 
-    @GetMapping("/getDepartmentAndJob")
+    @GetMapping("/getDetails/departmentAndJob")
     public ResponseEntity<DepartmentJobDto> getDepartmentAndJobName(){
 
         return new ResponseEntity<DepartmentJobDto>(employeeService.getDepartmentandJobDetails(),HttpStatus.OK);
