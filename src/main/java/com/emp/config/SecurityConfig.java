@@ -40,6 +40,8 @@ public class SecurityConfig {
                                 auth.requestMatchers("/auth/login").permitAll()
                                         .requestMatchers("/employee/register").hasAuthority("ROLE_ADMIN")
                                         .requestMatchers("/employee/update/**").hasAuthority("ROLE_ADMIN")
+                                        .requestMatchers("/department").hasAuthority("ROLE_ADMIN")
+                                        .requestMatchers("/job").hasAuthority("ROLE_ADMIN")
                                         .anyRequest()
                                         .authenticated())
                 .exceptionHandling(ex->ex.authenticationEntryPoint(point))

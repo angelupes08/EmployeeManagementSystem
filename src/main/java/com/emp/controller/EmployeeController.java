@@ -38,7 +38,7 @@ public class EmployeeController {
         return new ResponseEntity<DepartmentJobDto>(employeeService.updateDepartmentandJobDetails(departmentJobDto,id),HttpStatus.OK);
     }
 
-    @PutMapping("/update/employee/{id}")
+    @PutMapping("De")
     public ResponseEntity<EmployeeDto> updateEmployeeInfo(@RequestBody EmployeeDto employeeDto,
                                                           @PathVariable Long id){
 

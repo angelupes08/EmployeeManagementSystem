@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/department")
 public class DepartmentController {
 
 
     @Autowired
     DepartmentService departmentService;
 
-    @GetMapping("")
+    @GetMapping("/department")
     public ResponseEntity<List<DepartmentDto>> getDepartmentDetails(){
 
         return new ResponseEntity<List<DepartmentDto>>(departmentService.getDepartmentDetails(), HttpStatus.OK);

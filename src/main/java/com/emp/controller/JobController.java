@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/job")
 public class JobController {
 
     @Autowired
     JobService jobService;
 
-    @GetMapping("")
+    @GetMapping("/job")
     public ResponseEntity<List<JobDto>> getJobDetails(){
 
         return new ResponseEntity<List<JobDto>>(jobService.getJobDetails(), HttpStatus.OK);
