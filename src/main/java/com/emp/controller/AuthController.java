@@ -32,7 +32,7 @@ public class AuthController {
     @Autowired
     AuthenticationManager manager;
 
-    @Operation(summary = "Login to the app")
+    //This will allow the admin to Login to the application
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest request) {
 

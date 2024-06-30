@@ -18,6 +18,7 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
+    //This will allow the admin to see all the department details
     @GetMapping("/department")
     public ResponseEntity<List<DepartmentDto>> getDepartmentDetails(){
 

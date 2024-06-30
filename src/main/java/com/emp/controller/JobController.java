@@ -18,6 +18,7 @@ public class JobController {
     @Autowired
     JobService jobService;
 
+    //This will allow the admin to see all the job details
     @GetMapping("/job")
     public ResponseEntity<List<JobDto>> getJobDetails(){
 
